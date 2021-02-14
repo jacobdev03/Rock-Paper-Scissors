@@ -13,6 +13,7 @@ let playRound = (playerSelection, computerSelection) => {
   playerSelection = prompt("What do you choose? ");
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerPlay();
+
   if (playerSelection === computerSelection) {
     result = "Draw!";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -27,7 +28,10 @@ let playRound = (playerSelection, computerSelection) => {
     result = "Computer win!";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     result = "Human win!";
+  } else {
+    console.log("Choose a correct weapon!");
   }
+  console.log(result);
   return result;
 };
 
@@ -36,5 +40,25 @@ function addScore() {
     playerScore++;
   } else if (result === "Computer win!") {
     computerScore++;
+  }
+}
+
+function game() {
+  for (let i = 1; i <= 5; i++) {
+    playRound(playerSelection, computerSelection);
+    addScore();
+    console.log(playerScore);
+    console.log(computerScore);
+  }
+  checkWinner();
+}
+
+function checkWinner() {
+  if (playerScore > computerScore) {
+    console.log("The winner of 5 rounds is human");
+  } else if (computerScore > playerScore) {
+    console.log("The winner of 5 rounds is computer");
+  } else {
+    console.log("Draw game!");
   }
 }
