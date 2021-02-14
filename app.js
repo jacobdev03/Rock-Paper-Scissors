@@ -12,19 +12,19 @@ let result;
 
 let playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
-    result = console.log("Draw!");
+    result = "Draw!";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    result = console.log("Human win!");
+    result = "Human win!";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    result = console.log("Computer win!");
+    result = "Computer win!";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    result = console.log("Human win!");
-  } else if (playerSelection === "scissors" && computerSelection === "pock") {
-    result = console.log("Computer win!");
+    result = "Human win!";
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    result = "Computer win!";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    result = console.log("Computer win!!");
+    result = "Computer win!!";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    result = console.log("Human win!");
+    result = "Human win!";
   }
   return result;
 };
