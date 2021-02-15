@@ -32,7 +32,7 @@ let playRound = (playerSelection, computerSelection) => {
     score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     winner.textContent = `${playerSelection} beats ${computerSelection} Human win!`;
-    playerSelection++;
+    playerScore++;
     score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
