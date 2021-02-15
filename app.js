@@ -2,6 +2,9 @@ const playOptions = ["rock", "paper", "scissors"];
 let paper = document.querySelector(".paper");
 let rock = document.querySelector(".rock");
 let scissors = document.querySelector(".scissors");
+let winner = document.querySelector(".winner");
+let score = document.querySelector(".score");
+let gameWinner = document.querySelector(".gameWinner");
 
 let computerPlay = () => {
   return playOptions[Math.floor(Math.random() * 3)]; //choose random weapon
@@ -16,24 +19,36 @@ let playRound = (playerSelection, computerSelection) => {
   computerSelection = computerPlay();
 
   if (playerSelection === computerSelection) {
-    result = "Tie game!";
+    winner.textContent = "Tie game!";
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    result = "Human win!";
+    winner.textContent = `${playerSelection} beats ${computerSelection} Human win!`;
+    playerScore++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    result = "Computer win!";
+    winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
+    computerScore++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    result = "Human win!";
+    winner.textContent = `${playerSelection} beats ${computerSelection} Human win!`;
+    playerSelection++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    result = "Computer win!";
+    winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
+    computerScore++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    result = "Computer win!";
+    winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
+    computerScore++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    result = "Human win!";
+    winner.textContent = `${playerSelection} beats ${computerSelection}! Human win!`;
+    playerScore++;
+    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
   } else {
     console.log("Choose a correct weapon!");
   }
-  console.log(result);
-  return result;
+  checkWinner();
 };
 
 function addScore() {
@@ -44,24 +59,17 @@ function addScore() {
   }
 }
 
-function game() {
-  for (let i = 1; i <= 5; i++) {
-    playRound(playerSelection, computerSelection);
-    addScore();
-    console.log(playerScore);
-    console.log(computerScore);
+function checkWinner() {
+  if (playerScore === 5) {
+    gameWinner.textContent = "The winner is human";
+  } else if (computerScore === 5) {
+    gameWinner.textContent = "The winner is computer";
   }
-  checkWinner();
 }
 
-function checkWinner() {
-  if (playerScore > computerScore) {
-    console.log("The winner of 5 rounds is human");
-  } else if (computerScore > playerScore) {
-    console.log("The winner of 5 rounds is computer");
-  } else {
-    console.log("Draw game!");
-  }
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
 }
 
 paper.addEventListener("click", () => {
