@@ -1,4 +1,5 @@
 const playOptions = ["rock", "paper", "scissors"];
+const playAgain = document.querySelector(".playAgain");
 let paper = document.querySelector(".paper");
 let rock = document.querySelector(".rock");
 let scissors = document.querySelector(".scissors");
@@ -62,14 +63,26 @@ function addScore() {
 function checkWinner() {
   if (playerScore === 5) {
     gameWinner.textContent = "The winner is human";
+    playAgain.style.display = "inline-block";
+    rock.style.display = "none";
+    paper.style.display = "none";
+    scissors.style.display = "none";
+    winner.textContent = "";
   } else if (computerScore === 5) {
     gameWinner.textContent = "The winner is computer";
+    rock.style.display = "none";
+    paper.style.display = "none";
+    scissors.style.display = "none";
+    winner.textContent = "";
+    playAgain.style.display = "inline-block";
   }
 }
 
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
+  score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+  gameWinner.textContent = "";
 }
 
 paper.addEventListener("click", () => {
@@ -88,4 +101,13 @@ scissors.addEventListener("click", () => {
   playerSelection = "scissors";
   playerSelection = playerSelection.toLowerCase();
   playRound(playerSelection, computerSelection);
+});
+
+playAgain.addEventListener("click", () => {
+  resetGame();
+  playAgain.style.display = "none";
+  winner.textContent = "";
+  rock.style.display = "inline-block";
+  paper.style.display = "inline-block";
+  scissors.style.display = "inline-block";
 });
