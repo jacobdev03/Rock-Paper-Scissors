@@ -1,3 +1,6 @@
+.body {
+  background-color: bl;
+}
 .img {
   width: 150px;
   height: 150px;
@@ -13,4 +16,13 @@
 
 .playAgain {
   display: none;
+  background-color: greenyellow;
+  border-radius: 30px;
+  font-size: 18px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -21,31 +21,31 @@ let playRound = (playerSelection, computerSelection) => {
 
   if (playerSelection === computerSelection) {
     winner.textContent = "Tie game!";
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     winner.textContent = `${playerSelection} beats ${computerSelection} Human win!`;
     playerScore++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
     computerScore++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     winner.textContent = `${playerSelection} beats ${computerSelection} Human win!`;
     playerSelection++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
     winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
     computerScore++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     winner.textContent = `${computerSelection} beats ${playerSelection} Computer win!`;
     computerScore++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     winner.textContent = `${playerSelection} beats ${computerSelection}! Human win!`;
     playerScore++;
-    score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   } else {
     console.log("Choose a correct weapon!");
   }
@@ -81,7 +81,7 @@ function checkWinner() {
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
-  score.textContent = `Player: ${playerScore}| Computer: ${computerScore}`;
+  score.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
   gameWinner.textContent = "";
 }
 
