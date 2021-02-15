@@ -1,7 +1,10 @@
 const playOptions = ["rock", "paper", "scissors"];
+let paper = document.querySelector(".paper");
+let rock = document.querySelector(".rock");
+let scissors = document.querySelector(".scissors");
 
 let computerPlay = () => {
-  return playOptions[Math.floor(Math.random() * 3)];
+  return playOptions[Math.floor(Math.random() * 3)]; //choose random weapon
 };
 let playerSelection = "";
 let computerSelection = "";
@@ -10,12 +13,10 @@ let playerScore = 0;
 let computerScore = 0;
 
 let playRound = (playerSelection, computerSelection) => {
-  playerSelection = prompt("What do you choose? ");
-  playerSelection = playerSelection.toLowerCase();
   computerSelection = computerPlay();
 
   if (playerSelection === computerSelection) {
-    result = "Draw!";
+    result = "Tie game!";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     result = "Human win!";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -62,3 +63,21 @@ function checkWinner() {
     console.log("Draw game!");
   }
 }
+
+paper.addEventListener("click", () => {
+  playerSelection = "paper";
+  playerSelection = playerSelection.toLowerCase();
+  playRound(playerSelection, computerSelection);
+});
+
+rock.addEventListener("click", () => {
+  playerSelection = "rock";
+  playerSelection = playerSelection.toLowerCase();
+  playRound(playerSelection, computerSelection);
+});
+
+scissors.addEventListener("click", () => {
+  playerSelection = "scissors";
+  playerSelection = playerSelection.toLowerCase();
+  playRound(playerSelection, computerSelection);
+});
